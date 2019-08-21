@@ -1,0 +1,99 @@
+---
+openapi: "3.0.1"
+info:
+  title: "Property Info Service Swagger"
+  version: "1.0"
+paths:
+  /properties/{id}:
+    get:
+      parameters:
+      - name: "id"
+        in: "path"
+        description: "id"
+        required: true
+        schema:
+          type: "string"
+      responses:
+        200:
+          description: "Property"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Property"
+    put:
+      parameters:
+      - name: "id"
+        in: "path"
+        description: "id"
+        required: true
+        schema:
+          type: "string"
+      requestBody:
+        description: "aProperty"
+        content:
+          '*/*':
+            schema:
+              $ref: "#/components/schemas/Property"
+      responses:
+        200:
+          description: "Property"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Property"
+    delete:
+      parameters:
+      - name: "id"
+        in: "path"
+        description: "id"
+        required: true
+        schema:
+          type: "string"
+      responses:
+        200:
+          description: "void"
+  /properties:
+    get:
+      responses:
+        200:
+          description: "Property"
+          content:
+            application/json:
+              schema:
+                type: "array"
+                items:
+                  $ref: "#/components/schemas/Property"
+    post:
+      parameters: []
+      requestBody:
+        description: "aProperty"
+        content:
+          '*/*':
+            schema:
+              $ref: "#/components/schemas/Property"
+      responses:
+        200:
+          description: "Property"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Property"
+components:
+  schemas:
+    Property:
+      type: "object"
+      properties:
+        buildingType:
+          type: "string"
+        mgtFee:
+          type: "number"
+        propertyId:
+          type: "string"
+        area:
+          type: "integer"
+          format: "int32"
+        features:
+          type: "string"
+        year:
+          type: "integer"
+          format: "int32"

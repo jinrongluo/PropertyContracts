@@ -1,0 +1,76 @@
+---
+openapi: "3.0.1"
+info:
+  title: "Property Layout Service Swagger"
+  version: "1.0"
+paths:
+  /layouts:
+    get:
+      responses:
+        200:
+          description: "Layout"
+          content:
+            application/json:
+              schema:
+                type: "array"
+                items:
+                  $ref: "#/components/schemas/Layout"
+  /layouts/{layoutid}:
+    get:
+      parameters:
+      - name: "layoutid"
+        in: "path"
+        description: "layoutid"
+        required: true
+        schema:
+          type: "string"
+      responses:
+        200:
+          description: "Layout"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Layout"
+components:
+  schemas:
+    Layout:
+      type: "object"
+      properties:
+        layoutId:
+          type: "string"
+        rooms:
+          type: "array"
+          items:
+            $ref: "#/components/schemas/Room"
+    Room:
+      type: "object"
+      properties:
+        roomId:
+          type: "integer"
+          format: "int32"
+        layout:
+          $ref: "#/components/schemas/Layout"
+        accessories:
+          type: "array"
+          items:
+            $ref: "#/components/schemas/Accessory"
+        roomName:
+          type: "string"
+        roomLocation:
+          type: "string"
+        roomType:
+          type: "string"
+    Accessory:
+      type: "object"
+      properties:
+        accessoryName:
+          type: "string"
+        accessoryType:
+          type: "string"
+        manufacture:
+          type: "string"
+        accessoryId:
+          type: "integer"
+          format: "int32"
+        room:
+          $ref: "#/components/schemas/Room"
