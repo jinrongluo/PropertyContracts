@@ -1,7 +1,7 @@
 ---
 openapi: "3.0.1"
 info:
-  title: "Property Info Service Swagger test"
+  title: "Property Info Service Swagger"
   version: "1.0"
 paths:
   /properties/{id}:
