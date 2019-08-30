@@ -1,7 +1,7 @@
 ---
 openapi: "3.0.1"
 info:
-  title: "Property Layout Service Swagger Test"
+  title: "Property Layout Service Swagger"
   version: "1.0"
 paths:
   /layouts:
